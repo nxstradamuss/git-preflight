@@ -1,0 +1,3 @@
+# Test fixtures deliberately contain fake credentials to prove the rules fire.
+# Scanning them would flag the fixtures, not real leaks.
+tests/

@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "git-preflight"
+version = "1.0.0"
+description = "Catch secrets before they leave your machine - zero-dependency pre-push secret scanner"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Tegar Novian Permata Putra" }]
+keywords = ["security", "secrets", "git", "pre-commit", "scanner", "credentials"]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Security",
+    "Topic :: Software Development :: Version Control :: Git",
+]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.scripts]
+preflight = "preflight:main"
+
+[tool.setuptools]
+py-modules = ["preflight"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
