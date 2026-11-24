@@ -8,7 +8,9 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    # Pinned: ubuntu-latest moved to 26.04, where setup-python no longer ships
+    # 3.9. Pinning 22.04 keeps the whole 3.9-3.13 matrix available.
+    runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
       matrix:
@@ -29,7 +31,7 @@ jobs:
         run: python -m pytest -q
 
   dogfood:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
       - name: preflight scans its own source
